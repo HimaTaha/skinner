@@ -46,6 +46,7 @@ If you want to contribute to this project, please contact me by e-mail to [jiorl
 ## Authors
 
 **José Ignacio Orlando** - *Coding* - [Github](https://github.com/ignaciorlando) - [Twitter](https://twitter.com/ignaciorlando)
+
 **Pablo Rubí** - *Coding* - [Github](https://github.com/blito)
 
 See also the list of [contributors](https://github.com/ignaciorlando/skinner/graphs/contributors) who participated in this project.
