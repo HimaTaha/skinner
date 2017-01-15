@@ -1,6 +1,6 @@
 # Skinner: Melanoma detection based on deep convolutional neural networks
 
-This code corresponds to our work with [Pablo Rubí](github.com/blito) on melanoma detection based on deep convolutional neural networks.
+This code corresponds to our work with [Pablo Rubí](https://github.com/blito) on melanoma detection based on deep convolutional neural networks.
 
 As we are working on a publication right now, please do not use this code until we have a citation for you to include in your papers :-)
 
