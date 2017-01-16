@@ -6,13 +6,17 @@ import csv
 import math
 import getpass
 import sys
+import platform
 
 # Set default parameters
 if len(sys.argv) < 3:
     # Get current folder
     current_folder = os.getcwd()
     # Set source folder where ISBI2016_ISIC_Part3_Training_Data.zip is
-    downloaded_dataset_folder = os.path.join("/Users", getpass.getuser(), "Downloads")
+    if platform.system()=='Linux':
+        downloaded_dataset_folder = os.path.join("/Users", getpass.getuser(), "Downloads")
+    else:
+        downloaded_dataset_folder = os.path.join("/home", getpass.getuser(), "Downloads")
     # Destination folder
     destination_folder = os.path.join(os.path.dirname(current_folder), "data")
 else:
