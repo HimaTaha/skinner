@@ -3,7 +3,10 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 
-def lenet_cnn():
+def lenet_cnn(selected_metrics):
+
+    if len(selected_metrics)==1:
+        selected_metrics = [selected_metrics]
 
     # First block of layers: Convolutional + ReLU + Max pooling
     model = Sequential()
@@ -33,6 +36,6 @@ def lenet_cnn():
     # and using accuracy as quality measure
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
-                  metrics=['accuracy'])
+                  metrics=selected_metrics)
 
     return model

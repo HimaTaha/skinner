@@ -5,16 +5,33 @@ from keras.layers import Activation, Dropout, Flatten, Dense
 from preprocessing.augmentation_policy import augmentation_policy
 from deep_networks.lenet_cnn import lenet_cnn
 import os
+import sys
 
 
-# Input folder
-input_data_folder = "/Users/ignaciorlando/Documents/Skinner/data"
-# Temporal folder
-tmp_folder = "/Users/ignaciorlando/Documents/Skinner/data/tmp"
+### SET UP PARAMETERS
+
+# Set default parameters
+if len(sys.argv)==1:
+    # Get current folder
+    current_folder = os.getcwd()
+    # Input folder
+    input_data_folder = os.path.join(os.path.dirname(current_folder), "data")
+else:
+    # Input folder will be the first argument
+    input_data_folder = sys.argv[1]
+
+# Temporal folder will be inside the data folder
+models_folder = os.path.join(input_data_folder, "models")
+if not os.path.exists(models_folder):
+    os.makedirs(models_folder)
+
 
 
 ### SET UP THE NETWORK ARCHITECTURE
-model = lenet_cnn()
+
+# Use LeNet with precision and recall metrics
+model = lenet_cnn(['precision','recall'])
+
 
 
 ### SET UP THE TRAINING AND VALIDATION DATA GENERATION POLICIES
@@ -41,6 +58,7 @@ validation_generator = validation_datagen.flow_from_directory(
         class_mode='binary')
 
 
+
 ### TRAIN THE MODEL
 
 model.fit_generator(
@@ -49,4 +67,9 @@ model.fit_generator(
         nb_epoch=50,
         validation_data=validation_generator,
         nb_val_samples=270)
-model.save_weights(os.path.join(tmp_folder,'lecun_example_try.h5'))  # always save your weights after training or during training
+
+
+
+### SAVE THE WEIGHTS
+
+model.save_weights(os.path.join(models_folder,'lecun_example_try.h5'))  # always save your weights after training or during training
