@@ -10,7 +10,7 @@ import os
 # Input folder
 input_data_folder = "/Users/ignaciorlando/Documents/Skinner/data"
 # Temporal folder
-tmp_folder = "/Users/ignaciorlando/Documents/Skinner/tmp"
+tmp_folder = "/Users/ignaciorlando/Documents/Skinner/data/tmp"
 
 
 ### SET UP THE NETWORK ARCHITECTURE
