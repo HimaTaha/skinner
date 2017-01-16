@@ -35,7 +35,7 @@ def lenet_cnn(selected_metrics):
     # Close the network indicating binary cross entropy, using rmsprop as the optimizer
     # and using accuracy as quality measure
     model.compile(loss='binary_crossentropy',
-                  optimizer='rmsprop',
+                  optimizer='adagrad',
                   metrics=selected_metrics)
 
     return model
