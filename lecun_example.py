@@ -70,8 +70,7 @@ model.fit_generator(
         samples_per_epoch=2016,
         nb_epoch=50,
         validation_data=validation_generator,
-        nb_val_samples=256,
-        class_weight=)
+        nb_val_samples=256)
 
 
 
