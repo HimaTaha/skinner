@@ -10,7 +10,7 @@ def lenet_cnn(selected_metrics):
 
     # First block of layers: Convolutional + ReLU + Max pooling
     model = Sequential()
-    model.add(Convolution2D(32, 3, 3, input_shape=(3, 150, 150)))
+    model.add(Convolution2D(32, 3, 3, input_shape=(3, 256, 256)))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
 

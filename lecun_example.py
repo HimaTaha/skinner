@@ -30,7 +30,7 @@ if not os.path.exists(models_folder):
 ### SET UP THE NETWORK ARCHITECTURE
 
 # Use LeNet with precision and recall metrics
-model = lenet_cnn(['precision','recall'])
+model = lenet_cnn(['accuracy','precision','recall'])
 
 
 
