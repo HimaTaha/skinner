@@ -2,6 +2,7 @@
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
+from keras.optimizers import SGD
 
 def lenet_cnn(selected_metrics, input_size):
 
@@ -34,8 +35,9 @@ def lenet_cnn(selected_metrics, input_size):
 
     # Close the network indicating binary cross entropy, using rmsprop as the optimizer
     # and using accuracy as quality measure
+    sgd = SGD(lr=0.001, clipnorm=1.)
     model.compile(loss='binary_crossentropy',
-                  optimizer='rmsprop',
+                  optimizer=sgd,
                   metrics=selected_metrics)
 
     return model
