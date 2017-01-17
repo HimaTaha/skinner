@@ -28,14 +28,14 @@ def lenet_cnn(selected_metrics, input_size):
     model.add(Flatten())  # this converts our 3D feature maps to 1D feature vectors
     model.add(Dense(64))
     model.add(Activation('relu'))
-    model.add(Dropout(0.5))
+    model.add(Dropout(0))
     model.add(Dense(1))
     model.add(Activation('sigmoid'))
 
     # Close the network indicating binary cross entropy, using rmsprop as the optimizer
     # and using accuracy as quality measure
     model.compile(loss='binary_crossentropy',
-                  optimizer='adagrad',
+                  optimizer='rmsprop',
                   metrics=selected_metrics)
 
     return model
