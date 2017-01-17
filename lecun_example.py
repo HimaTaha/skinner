@@ -71,7 +71,7 @@ model.fit_generator(
         nb_epoch=50,
         validation_data=validation_generator,
         nb_val_samples=256,
-        class_weight=[0.18 0.82])
+        class_weight=[0.18, 0.82])
 
 
 
