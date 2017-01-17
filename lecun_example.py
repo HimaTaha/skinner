@@ -16,9 +16,13 @@ if len(sys.argv)==1:
     current_folder = os.getcwd()
     # Input folder
     input_data_folder = os.path.join(os.path.dirname(current_folder), "data")
+    # Input size
+    input_size = [256, 256]
 else:
     # Input folder will be the first argument
     input_data_folder = sys.argv[1]
+    # Input size
+    input_size = [sys.argv[2], sys.argv[3]]
 
 # Temporal folder will be inside the data folder
 models_folder = os.path.join(input_data_folder, "models")
@@ -30,7 +34,7 @@ if not os.path.exists(models_folder):
 ### SET UP THE NETWORK ARCHITECTURE
 
 # Use LeNet with precision and recall metrics
-model = lenet_cnn(['accuracy','precision','recall'])
+model = lenet_cnn(['accuracy','precision','recall'], input_size)
 
 
 
@@ -46,14 +50,14 @@ validation_datagen = augmentation_policy("validation")
 # batches of augmented image data
 train_generator = train_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'train'),  # this is the target directory
-        target_size=(256, 256),  # all images will be resized to 150x150
+        target_size=(input_size[0], input_size[2]),  # all images will be resized to input_size[0] x input_size[1]
         batch_size=32,
         class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
 
 # this is a similar generator, for validation data
 validation_generator = validation_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'validation'),
-        target_size=(256, 256),
+        target_size=(input_size[0], input_size[2]),
         batch_size=32,
         class_mode='binary')
 
@@ -63,7 +67,7 @@ validation_generator = validation_datagen.flow_from_directory(
 
 model.fit_generator(
         train_generator,
-        samples_per_epoch=1024,
+        samples_per_epoch=2016,
         nb_epoch=50,
         validation_data=validation_generator,
         nb_val_samples=256)

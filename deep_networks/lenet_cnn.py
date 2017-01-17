@@ -3,14 +3,14 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 
-def lenet_cnn(selected_metrics):
+def lenet_cnn(selected_metrics, input_size):
 
     if len(selected_metrics)==1:
         selected_metrics = [selected_metrics]
 
     # First block of layers: Convolutional + ReLU + Max pooling
     model = Sequential()
-    model.add(Convolution2D(32, 3, 3, input_shape=(3, 256, 256)))
+    model.add(Convolution2D(32, 3, 3, input_shape=(3, input_size[0], input_size[1])))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
 
