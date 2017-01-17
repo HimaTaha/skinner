@@ -46,14 +46,14 @@ validation_datagen = augmentation_policy("validation")
 # batches of augmented image data
 train_generator = train_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'train'),  # this is the target directory
-        target_size=(150, 150),  # all images will be resized to 150x150
+        target_size=(256, 256),  # all images will be resized to 150x150
         batch_size=32,
         class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
 
 # this is a similar generator, for validation data
 validation_generator = validation_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'validation'),
-        target_size=(150, 150),
+        target_size=(256, 256),
         batch_size=32,
         class_mode='binary')
 
