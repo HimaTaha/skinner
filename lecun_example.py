@@ -17,7 +17,7 @@ if len(sys.argv)==1:
     # Input folder
     input_data_folder = os.path.join(os.path.dirname(current_folder), "data")
     # Input size
-    input_size = [256, 256]
+    input_size = [150, 150]
 else:
     # Input folder will be the first argument
     input_data_folder = sys.argv[1]
@@ -71,7 +71,7 @@ model.fit_generator(
         nb_epoch=50,
         validation_data=validation_generator,
         nb_val_samples=270,
-        class_weight=[0.18, 0.82])
+        class_weight=[0.82, 0.18])
 
 
 
