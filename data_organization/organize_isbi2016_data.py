@@ -90,7 +90,7 @@ else:
         csvfile.seek(0)
         print(str(num_images) + " images in " + training_dataset_name)
         # First 70% images will be used for training and the remaining portion will be used for validation
-        num_training_images = math.floor(num_images * 0.7)
+        num_training_images = math.floor(num_images * 0.85)
         print(str(num_training_images) + " will be used for training, and " + str(num_images - num_training_images) + " for validation")
         # For each row in the csv file...
         images_counter = 1
