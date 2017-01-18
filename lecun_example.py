@@ -52,7 +52,7 @@ train_generator = train_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'train'),  # this is the target directory
         target_size=(input_size[0], input_size[1]),  # all images will be resized to input_size[0] x input_size[1]
         batch_size=64,
-        classes=['binary','malignant'],
+        classes=['benign','malignant'],
         class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
 
 # this is a similar generator, for validation data
