@@ -51,14 +51,16 @@ validation_datagen = augmentation_policy("validation")
 train_generator = train_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'train'),  # this is the target directory
         target_size=(input_size[0], input_size[1]),  # all images will be resized to input_size[0] x input_size[1]
-        batch_size=32,
+        batch_size=64,
+        classes=['binary','malignant'],
         class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
 
 # this is a similar generator, for validation data
 validation_generator = validation_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'validation'),
         target_size=(input_size[0], input_size[1]),
-        batch_size=32,
+        batch_size=64,
+        classes=['binary','malignant'],
         class_mode='binary')
 
 
@@ -67,7 +69,7 @@ validation_generator = validation_datagen.flow_from_directory(
 
 model.fit_generator(
         train_generator,
-        samples_per_epoch=765,
+        samples_per_epoch=2448,
         nb_epoch=50,
         validation_data=validation_generator,
         nb_val_samples=270,
