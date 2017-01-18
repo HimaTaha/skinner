@@ -82,6 +82,7 @@ def save_bottlebeck_features():
             target_size=(img_width, img_height),
             batch_size=32,
             class_mode=None,
+            classes=['benign','malignant'],
             shuffle=False)
     bottleneck_features_train = model.predict_generator(generator, nb_train_samples)
     np.save(open('bottleneck_features_train.npy', 'w'), bottleneck_features_train)
@@ -91,6 +92,7 @@ def save_bottlebeck_features():
             target_size=(img_width, img_height),
             batch_size=32,
             class_mode=None,
+            classes=['benign','malignant'],
             shuffle=False)
     bottleneck_features_validation = model.predict_generator(generator, nb_validation_samples)
     np.save(open('bottleneck_features_validation.npy', 'w'), bottleneck_features_validation)
