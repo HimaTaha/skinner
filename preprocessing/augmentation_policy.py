@@ -4,7 +4,7 @@ from keras.preprocessing.image import ImageDataGenerator
 def augmentation_policy(data_type):
 
     if (data_type=="training"):
-        # datagen will be as follows:
+        '''# datagen will be as follows:
         datagen = ImageDataGenerator(
                 # rotation_range: we want any rotation, as dermathological image can be
                 # taken at different angles.
@@ -23,7 +23,9 @@ def augmentation_policy(data_type):
                 # horizontal_flip: is a pretty good idea too
                 horizontal_flip=True,
                 # and fill_mode will be nearest neighbor
-                fill_mode='nearest')
+                fill_mode='nearest')'''
+        datagen = ImageDataGenerator(
+                rescale=1./255)
     else:
         # datagen will be only rescale
         datagen = ImageDataGenerator(
