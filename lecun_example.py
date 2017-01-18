@@ -67,10 +67,10 @@ validation_generator = validation_datagen.flow_from_directory(
 
 model.fit_generator(
         train_generator,
-        samples_per_epoch=2016,
+        samples_per_epoch=630,
         nb_epoch=50,
         validation_data=validation_generator,
-        nb_val_samples=256,
+        nb_val_samples=270,
         class_weight=[0.18, 0.82])
 
 
