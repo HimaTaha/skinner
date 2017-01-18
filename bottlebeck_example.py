@@ -12,8 +12,8 @@ top_model_weights_path = '/home/ignaciorlando/Documents/Skinner/data/models/bott
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = '/home/ignaciorlando/Documents/Skinnerdata/train'
-validation_data_dir = '/home/ignaciorlando/Documents/Skinnerdata/validation'
+train_data_dir = '/home/ignaciorlando/Documents/Skinner/data/train'
+validation_data_dir = '/home/ignaciorlando/Documents/Skinner/data/validation'
 nb_train_samples = 2000
 nb_validation_samples = 800
 nb_epoch = 50
