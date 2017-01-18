@@ -7,7 +7,7 @@ def augmentation_policy(data_type):
         # datagen will be as follows:
         datagen = ImageDataGenerator(
                 # normalize all the data set to 0 mean
-                featurewise_center=True,
+                samplewise_center=True,
                 # rotation_range: we want any rotation, as dermathological image can be
                 # taken at different angles.
                 rotation_range=180,

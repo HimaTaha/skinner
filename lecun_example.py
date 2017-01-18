@@ -60,7 +60,7 @@ validation_generator = validation_datagen.flow_from_directory(
         os.path.join(input_data_folder, 'validation'),
         target_size=(input_size[0], input_size[1]),
         batch_size=64,
-        classes=['binary','malignant'],
+        classes=['benign','malignant'],
         class_mode='binary')
 
 
